@@ -62,8 +62,10 @@ class BinLogEvent(object):
             self._is_event_valid = True
         else:
             self._is_event_valid = False
-            logging.warning(f"An CRC32 has failed for the event type {self.event_type}, "
-                            "indicating a potential integrity issue with the data.")
+            logging.warning(
+                f"An CRC32 has failed for the event type {self.event_type}, "
+                "indicating a potential integrity issue with the data."
+            )
         self.packet.read_bytes -= 19 + self.event_size + 4
         self.packet.rewind(20)
 
