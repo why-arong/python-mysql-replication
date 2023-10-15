@@ -62,7 +62,7 @@ class BinLogEvent(object):
             self._is_event_valid = True
         else:
             self._is_event_valid = False
-            logging.warning(
+            logging.error(
                 f"An CRC32 has failed for the event type {self.event_type}, "
                 "indicating a potential integrity issue with the data."
             )
